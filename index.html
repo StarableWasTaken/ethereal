@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ethereal Launcher</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <h1>Ethereal Launcher</h1>
+        <p class="tagline">
+          A third-party Minecraft launcher with clean visuals, speedy version
+          management, and optional cosmetics for players who already own Minecraft:
+          Java Edition.
+        </p>
+        <div class="hero__actions">
+          <a class="cta" href="#features">Explore Features</a>
+          <a class="cta cta--secondary" href="https://example.com/download" target="_blank" rel="noopener">Download Launcher</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel" id="overview">
+        <h2>What Is Ethereal Launcher?</h2>
+        <p>
+          Ethereal Launcher offers an alternative Minecraft experience by focusing
+          on a streamlined interface, Microsoft OAuth sign-in, and faithful use of
+          official Mojang assets. The launcher never redistributes the game, bypasses
+          authentication, or launches accounts that do not already own Minecraft.
+        </p>
+      </section>
+
+      <section class="panel" id="features">
+        <h2>How the Launcher Works</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>1. Microsoft Sign-In</h3>
+            <p>
+              Users authenticate via the official OAuth window using the
+              <code>openid</code>, <code>profile</code>, <code>offline_access</code>,
+              and <code>XboxLive.signin</code> scopes.
+            </p>
+          </article>
+          <article class="card">
+            <h3>2. Ownership Verification</h3>
+            <p>
+              The launcher forwards the token to the backend, which performs Xbox Live,
+              XSTS, and Minecraft Services checks before returning the username, UUID,
+              and access token.
+            </p>
+          </article>
+          <article class="card">
+            <h3>3. Official Downloads</h3>
+            <p>
+              Version manifests and files are fetched directly from
+              <a href="https://piston-meta.mojang.com">piston-meta.mojang.com</a> and
+              <a href="https://piston-data.mojang.com">piston-data.mojang.com</a> with
+              zero modifications.
+            </p>
+          </article>
+          <article class="card">
+            <h3>4. Standard Launch</h3>
+            <p>
+              Java arguments, classpath, and authentication options mirror the
+              official launcher while invoking the standard
+              <code>net.minecraft.client.main.Main</code> entrypoint.
+            </p>
+          </article>
+          <article class="card">
+            <h3>5. Optional Cosmetics</h3>
+            <p>
+              Community-made capes or textures can be applied via local resource packs.
+              Cosmetics never touch Mojang assets or gameplay balance.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel" id="security">
+        <h2>Security &amp; Compliance</h2>
+        <ul>
+          <li>OAuth-only login — no passwords handled, no legacy accounts supported.</li>
+          <li>Only usernames, UUIDs, and temporary access tokens are stored locally.</li>
+          <li>
+            Backend enforces HTTPS, rate-limits, sanitizes input, and keeps cosmetic
+            data isolated from credentials.
+          </li>
+          <li>
+            Required scopes (<code>openid</code>, <code>profile</code>,
+            <code>offline_access</code>, <code>XboxLive.signin</code>) allow Xbox Live
+            RPS flow, XSTS token creation, and Minecraft ownership validation.
+          </li>
+        </ul>
+      </section>
+
+      <section class="panel" id="contact">
+        <h2>Contact</h2>
+        <p>
+          Project maintained by <strong>WhackkQuackk</strong><br />
+          Role: Independent Game Developer &amp; Software Developer
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <small>&copy; <span id="year"></span> Ethereal Launcher — Community Project</small>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
